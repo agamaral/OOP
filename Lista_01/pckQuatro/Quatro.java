@@ -1,4 +1,4 @@
-package pck_quatro;
+package pckQuatro;
 
 public class Quatro {
     public static void main(String args[]) {

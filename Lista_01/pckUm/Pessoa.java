@@ -1,4 +1,4 @@
-package pck_um;
+package pckUm;
 
 public class Pessoa {
     private double cpf;

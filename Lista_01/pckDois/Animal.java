@@ -1,4 +1,4 @@
-package pck_dois;
+package pckDois;
 
 public class Animal {
     private String tipo; //aquatico, terrestre ou aéreo;

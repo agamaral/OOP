@@ -1,4 +1,4 @@
-package pck_tres;
+package pckTres;
 
 public class Triangulo { 
     private int anguloUm;
@@ -12,13 +12,16 @@ public class Triangulo {
 
     public int getTipo(anguloUm, anguloDois, anguloTres) {
         if ( anguloUm == 90 || anguloDois == 90 || anguloTres == 90 ) {
-            System.out.println("tipo = Retângulo");
+            this.tipo = "Retângulo";
+            return this.tipo;
         }
         else if (anguloUm == anguloDois && anguloDois == anguloTres){
-            System.out.println("tipo = Equilátero");
+            this.tipo = "Equilátero";
+            return this.tipo;
         }
         else {
-            System.out.println("tipo = Isósceles");
+            this.tipo = "Isósceles";
+            return this.tipo;
         }
     }
 

@@ -1,4 +1,4 @@
-package pck_dois;
+package pckDois;
 
 public class Dois {
     public static void main (String args[]) {

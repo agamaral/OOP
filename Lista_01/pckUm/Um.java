@@ -1,4 +1,4 @@
-package pck_um;
+package pckUm;
 
 public class Um {
     public static void main ( String args [] ) {
