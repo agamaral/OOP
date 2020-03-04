@@ -1,4 +1,4 @@
-package pck_quatro;
+package pckQuatro;
 
 public class Poligono {
     private int lado1;

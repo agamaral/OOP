@@ -1,4 +1,4 @@
-package pck_tres;
+package pckTres;
 
 public class Tres {
     public static void main (String args[]) {
