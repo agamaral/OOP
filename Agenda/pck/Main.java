@@ -8,9 +8,8 @@ public class Main {
         Agenda agendaPablo = new Agenda(365);
 
         agendaPablo.addContato(ricardo);
-        agendaPablo.exibirContato();
-
         agendaPablo.addContato(antonio);
+        
         agendaPablo.exibirContato();
     }
 }
