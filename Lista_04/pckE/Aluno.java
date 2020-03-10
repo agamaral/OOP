@@ -1,3 +1,4 @@
+package pckE;
 public class Aluno {
     private String nome;
     private int idade;
@@ -33,7 +34,7 @@ public class Aluno {
         this.turma = turma;
     }
 
-    public void exibeInfos() {
+    public void exibeInfos(Aluno a) {
         System.out.println("O nome do aluno é:" + this.aluno);
         System.out.println("A idade do aluno é:"+ this.idade);
         System.out.println("A turma do aluno é:"+ this.turma);
