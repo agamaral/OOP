@@ -1,6 +1,6 @@
-package pckE;
+package pacotedois;
 public class Disciplina {
-    private Aluno[] alunos;
+    private Aluno alunos[];
     private int res;
 
     public Disciplina(int numAlunos) { //numAlunos é apenas a qtd inicial de alunos
@@ -9,26 +9,26 @@ public class Disciplina {
 
     public void removeAluno(Aluno a) {
         int i;
-        for (i = 0; i < getNumAlunos(); i++) {
+        for (i = 0; i < numAlunos; i++) {
             if (a.equals(alunos[i])) {
                 alunos[i] = null;
                 break;
             }
         }
-        if (i < getNumAlunos()) {
-            for (; i < getNumAlunos() - 1; i++) {
-                alunos[i] = alunos[i + 1];
-            }
-            numAlunos--;
-        } else {
-            System.out.println("Este aluno não existe! :(");
-        }
+        // if (i < numAlunos) {
+        //     for (; i < numAlunos - 1; i++) {
+        //         alunos[i] = alunos[i + 1];
+        //     }
+        //     numAlunos--;
+        // } else {
+        //     System.out.println("Este aluno não existe! :(");
+        // }
     }
 
     public void addAluno(Aluno a) {
         int j;
         alunos[i]++;
-        for(j = 0; j < getNumAlunos(); i++) {
+        for(j = 0; j < numAlunos; i++) {
             if (a != alunos[i]) {
                 alunos[i] = a;
                 break;
@@ -42,7 +42,8 @@ public class Disciplina {
         for(int k=0; k< alunos.lenght(); k++) {
             res = alunos++;
         }   
-        return res;
+        numAlunos = res;
+        return numAlunos;
     }
 
     public void exibeAlunos() {
