@@ -8,12 +8,12 @@ public class Produto {
         this.preco = preco;
         this.quantidade = quantidade;
     }
-    public double attPreco(double novoPreco) { // atualiza preço
+    public boolean attPreco(double novoPreco) { // atualiza preço
         if ( novoPreco < 0 ) {
-            return -1;
+            return false;
         }
         this.preco = novoPreco;
-        return this.preco;
+        return true;
     }
 
     public void visualiza() {

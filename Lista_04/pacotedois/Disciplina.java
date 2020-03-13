@@ -15,14 +15,14 @@ public class Disciplina {
                 break;
             }
         }
-        // if (i < numAlunos) {
-        //     for (; i < numAlunos - 1; i++) {
-        //         alunos[i] = alunos[i + 1];
-        //     }
-        //     numAlunos--;
-        // } else {
-        //     System.out.println("Este aluno não existe! :(");
-        // }
+        if (i < numAlunos) {
+            for (; i < numAlunos - 1; i++) {
+                alunos[i] = alunos[i + 1];
+            }
+            numAlunos--;
+        } else {
+            System.out.println("Este aluno não existe! :(");
+        }
     }
 
     public void addAluno(Aluno a) {
