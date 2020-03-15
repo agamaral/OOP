@@ -5,6 +5,8 @@ public class Empresa {
     private String CNPJ;
     private Departamento departamentos[];
 
+	
+
     public Empresa(String nome, String CNPJ) {
         departamentos = new int[10];
         this.nome = nome;
@@ -27,12 +29,12 @@ public class Empresa {
 		this.CNPJ = CNPJ;
 	}
 
-	public void setDepartamentos(Departamento d) {
-		this.departamentos = departamentos;
-	}
-
 	public Departamento getDepartamentos() {
 		return this.departamentos;
+	}
+
+	public void mudaDepartamento(Departamento d) {
+		this.departamentos = d;
 	}
 
 }

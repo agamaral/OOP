@@ -15,9 +15,9 @@ public class Main {
         Funcionario toto = new Funcionario("Vinicius Ferraz",200,"04/2019");
         Funcionario muhammed = new Funcionario("Matheus Spigariol",0,"03/2020");
 
-        Aldeia.setDepartamento("TI");
-        Aldeia.setDepartamento("Administrativo");
-        Aldeia.setDepartamento("Financeiro");
+        aldeia.setDepartamento("TI");
+        aldeia.setDepartamento("Administrativo");
+        aldeia.setDepartamento("Financeiro");
 
         depTI.setFuncionarios(antonio);
         depTI.setFuncionarios(eliezer);
@@ -25,7 +25,7 @@ public class Main {
         financeiro.setFuncionarios(toto);
 
         depTI.setAumento(10); //aumento em 10% o salário de todos do TI;
-
+        toto.mudaDepartamento(depTI);
 
     }
 }

@@ -30,4 +30,8 @@ public class Departamento {
         int aumento = funcionarios.salario * (porcentagem/100);
         funcionarios.salario = funcionarios.salario + aumento;
     }
+
+    // public void mudaDep(Departamento d) {
+    //     this.nome = d.nome;
+    // }
 }
