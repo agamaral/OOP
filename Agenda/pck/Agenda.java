@@ -1,29 +1,27 @@
 package pck;
 
-public class Agenda {
-    private Contato contatos[];
+import java.util.ArrayList;
 
-    public Agenda(int tamanho) {
-        contatos = new Contato[tamanho];
+public class Agenda {
+    private ArrayList<Contato> listaContatos;
+
+    public Agenda() {
+        listaContatos = new ArrayList<Contato>();
     }
 
     public boolean addContato(Contato novoContato) {
-        for (int i = 0; i < contatos.length; i++) {
-            if (contatos[i] == null) {
-                contatos[i] = novoContato;
-                return true;
-            }
-        }
-        return false;
+    	if(novoContato != null) {
+    		listaContatos.add(novoContato);
+    		return true;
+    	} else {
+    		return false;
+    	}
     }
 
-    public void exibirContato() {
-        for (int i = 0; i < contatos.length; i++) {
-            if (contatos[i] != null) {
-                System.out.println("Número do contato " + i);
-                contatos[i].mostrarInformacoes();
+    public void exibirContatos() {
+        for(Contato contato: listaContatos) {
+                contato.mostrarInformacoes();
                 System.out.println("=================");
-            }
         }
     }
 }

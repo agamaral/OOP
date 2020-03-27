@@ -11,7 +11,6 @@ public class Contato {
         this.telefone = telefone;
     }
 
-
     public String getNome() {
         return this.nome;
     }
@@ -36,12 +35,10 @@ public class Contato {
         this.telefone = telefone;
     }
    
-   
     public void mostrarInformacoes() {
         System.out.println("Nome: " + this.nome);
         System.out.println("E-mail:" + this.email);
         System.out.println("Telefone:" + this.telefone);
     }
 
-    //getters and setters
 }
