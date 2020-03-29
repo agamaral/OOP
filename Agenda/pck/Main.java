@@ -5,7 +5,7 @@ public class Main {
 
         Contato tonis = new Contato("Antonio","am4r4u@gmail.com","19999158977");
         Contato ricks = new Contato("Ricardo","ricardo.ramos@ifsuldeminas.edu.br","3599912190");
-        Contato nubis = new Contato("Núbia", "nubia@hotmail.com", "3599866283");
+        Contato nubis = new Contato("Nubia", "nubia@hotmail.com", "3599866283");
         
         Agenda agendaPablo = new Agenda();
         
