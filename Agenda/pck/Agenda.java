@@ -26,7 +26,7 @@ public class Agenda {
     }
 
     public boolean removeContato(Contato c) {
-        if (c != null) {
+        if (listaContatos != null) {
             listaContatos.remove(c);
             return true;
         } else {
