@@ -24,4 +24,13 @@ public class Agenda {
                 System.out.println("=================");
         }
     }
+
+    public boolean removeContato(Contato c) {
+        if (c != null) {
+            listaContatos.remove(c);
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
