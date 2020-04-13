@@ -1,6 +1,7 @@
 package ifsuldeminas.academico;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 import ifsuldeminas.funcionarios.*;
 import ifsuldeminas.alunos.*;
@@ -16,16 +17,12 @@ public class Disciplina {
 	ArrayList<Aluno> alunos = new ArrayList<Aluno>();
 	ArrayList<Double> notas = new ArrayList<Double>();
 	ArrayList<Integer> frequencias = new ArrayList<Integer>();
-	
-	public Disciplina() {
-		
-	}
 
 	public Disciplina (String nome, int periodo, int numAulasSemana, int numSemanas) {
 		this.nome = nome;
 		this.periodo = periodo;
 		this.numTotalAulas = numAulasSemana * numSemanas;
-		this.professor = null; //disciplina ainda não tem professor
+		this.professor = null;
 	}
 	
 	public Disciplina (String nome, int periodo, int numAulasSemana, int numSemanas, Professor p) {
@@ -35,63 +32,101 @@ public class Disciplina {
 		this.professor = p;
 	}
 	
-	public String getNome() {
-		return nome;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
-	public int getPeriodo() {
-		return periodo;
-	}
-
-	public void setPeriodo(int periodo) {
-		this.periodo = periodo;
-	}
-
-	public int getNumTotalAulas() {
-		return numTotalAulas;
-	}
-
-	public void setNumTotalAulas(int numTotalAulas) {
-		this.numTotalAulas = numTotalAulas;
-	}
-	
-	public void setAprovado(boolean aprovado) {
-		this.aprovado = aprovado;
-	}
-	
-	public boolean getAprovado() {
-		return aprovado;
-	}
-
-	public Professor getProfessor() {
-		return professor;
-	}
-
 	public void setProfessor(Professor p) {
 		this.professor = p;
+	}
+		
+	public void exibirProfessor() {
+		if (this.professor != null) {
+			System.out.println("O professor da disciplina eh:" + professor.getNome());
+		} else {
+			System.out.println("Disciplina nao tem professor.");
+		}
 	}
 	
 	public void removerProfessor() {
 		this.professor = null;
 	}
 	
-	public void getNumAlunos() {
-		System.out.println("O número de alunos é:" + alunos.size());
+	public int getNumAlunos() {
+		return alunos.size();
+	}
+	public int getNumNotas() {
+		return notas.size();
+	}
+	
+	public double getAproveitamentoAluno(int posAluno) {
+		return frequencias.get(posAluno);
+	}
+	
+	public void exibirAlunosAcimaMedia() {
+		if (alunos != null) {
+			for(int i =0; i< alunos.size(); i++) {
+				if(notas.get(i) > calcularMedia()) {
+					System.out.println(alunos.get(i).getNome());
+					
+				}
+			}
+		} else {
+			System.out.println("Nao existem alunos matriculados na disciplina.");
+		}
+	}
+	
+	public void exibirAlunosAbaixoMedia() {
+		if (alunos != null) {
+			for(int i =0; i< alunos.size(); i++) {
+				if(notas.get(i) < calcularMedia()) {
+					System.out.println(alunos.get(i).getNome());
+				}
+			}
+		} else {
+			System.out.println("Nao existem alunos matriculados na disciplina.");
+		}
+	}
+	
+	public void exibirAlunoNotaAproveitamento() {
+		for(int i=0; i< alunos.size(); i++) {
+			System.out.println("O nome do aluno eh:" + alunos.get(i).getNome());
+			System.out.println("A nota do aluno eh:" + notas.get(i));
+			System.out.println("O aproveitamento do aluno eh: "+frequencias.get(i)+"%");
+		}
+	}
+
+	public void exibirOrdenadosPorNota() {
+		
+		 Collections.sort(notas);
+		 
+		 for(int i = notas.size() - 1; i >= 0; i--) {
+				System.out.println("Aluno: "+alunos.get(i).getNome()+", Nota: " + notas.get(i));
+		 }
+	}
+	
+	public void exibirDisciplina() {
+		
+		System.out.println("O nome da disciplina eh:" + this.nome);
+		System.out.println("A disciplina eh ofertada no "+ this.periodo + "° periodo");
+		
+		if(alunos != null) {
+			exibirProfessor();
+			System.out.println("O num de alunos é:"+ getNumAlunos());
+			System.out.println("A média total da turma é:" + calcularMedia());
+			System.out.println("Quantidade de alunos aprovados:" + getNumAprovados());
+			System.out.println("Quantidade de alunos reprovados:" + getNumReprovados());
+		} else {
+			System.out.println("Não existem alunos matriculados na disciplina.");
+		}
+
 	}
 	
 	public boolean addNota(int posAluno, double nota) {
 		if (nota >= 0 && nota <= 10) {
-			notas.add(posAluno, nota);
+			notas.add(posAluno,nota);
 		} else {
 			System.out.println("Nota inválida.");
 		}
 		
 		if (notas.get(posAluno) == nota) {
-			System.out.println("Nota adicionada.");
+			//System.out.println("Nota adicionada.");
 		} else {
 			System.out.println("Erro ao adicionar a nota.");
 			return false;
@@ -107,20 +142,19 @@ public class Disciplina {
 		}
 		
 		if (frequencias.get(posAluno) == frequenciaTotal) {
-			System.out.println("Frequência adicionada.");
+			//System.out.println("Frequência adicionada.");
 		} else {
 			System.out.println("Erro ao adicionar frequência.");
 			return false;
 		}
 		return true;
-		
 	}
 	
 	public boolean estaAprovado(int posAluno) {
 		double n = notas.get(posAluno);
 		int freq = frequencias.get(posAluno);
 		
-		if (n >= 6 && freq > 75) {
+		if (n >= 6 && freq > 0.75 * numTotalAulas) {
 			this.aprovado = true;
 			System.out.println("O aluno está aprovado! Parabéns.");
 		} else {
@@ -131,12 +165,19 @@ public class Disciplina {
 		return this.aprovado;
 	}
 	
+	public void estaMatriculado(Aluno a) {
+		for(int i = 0; i< alunos.size(); i++) {
+			if (alunos.get(i) == a) {
+				System.out.println("Aluno matriculado com sucesso.");
+			}
+		}
+	}
 	public void exibirAprovados() {
 		int cont = 0;
 		for(int i = 0; i <alunos.size(); i++) {
-			if (this.aprovado) {
-				cont++;
-				System.out.println("O aluno" + alunos.get(i) + "está aprovado!");
+			if (notas.get(i) >= 6) {
+				cont = cont + 1;
+				System.out.println("O aluno " + alunos.get(i).getNome() + " está aprovado!");
 			}
 		}
 		if (cont == alunos.size()) {
@@ -145,53 +186,48 @@ public class Disciplina {
 	}
 	
 	public int getNumAprovados() {
-		int cont4 = 0;
+		int cont = 0;
 		for(int i =0; i <alunos.size(); i++) {
-			if(this.aprovado) {
-				cont4++;
-			} else {
-				break;
+			if(notas.get(i) >= 6) {
+				cont++;
 			}
 		}
-		return cont4;
+		return cont;
 	}
 	
 	public void exibirReprovados() {
-		int cont2 = 0;
+		int cont = 0;
 		for(int i = 0; i <alunos.size(); i++) {
-			if (!this.aprovado) {
-				cont2++;
-				System.out.println("O aluno" + alunos.get(i) + "está reprovado.");
+			if (notas.get(i) < 6) {
+				cont = cont + 1;
+				System.out.println("O aluno " + alunos.get(i).getNome() + " está reprovado.");
 			}
 		}
-		if (cont2 == 0) {
+		if (cont == 0) {
 			System.out.println("Não há alunos reprovados!");
 		}
 	}
 	
 	public int getNumReprovados() {
-		int cont3 = 0;
+		int cont = 0;
 		for(int i =0; i <alunos.size(); i++) {
-			if(!this.aprovado) {
-				cont3++;
-			} else {
-				break;
+			if(notas.get(i) < 6) {
+				cont = cont + 1;
 			}
 		}
-		return cont3;
+		return cont;
 	}
 	
 	public boolean matricularAluno(Aluno a) {
 		alunos.add(a);
-		notas.add(0.0);
-		frequencias.add(0);
+		//notas.add(0.0);
+		//frequencias.add(0);
 		
-		if (alunos.contains(a)) {
-			System.out.println("Aluno matriculado com sucesso!");
-		} else {
+		if (!alunos.contains(a)) {
 			return false;
+		} else {
+			return true;
 		}
-		return true;
  	}
 	
 	public boolean desmatricularAluno(int posAluno) {
@@ -207,42 +243,28 @@ public class Disciplina {
 		return true;
  	}
 	
+	public void desmatricularAlunos() {
+		alunos.clear();
+	}
+	
 	public double calcularMedia() {
 		double media;
 		double resNotas = 0;
 		
 		for (int i = 0; i < alunos.size(); i++) {
-			resNotas = notas.get(i);
-			resNotas++;
+			resNotas = notas.get(i) + resNotas;
 		}
 		media = (resNotas / alunos.size());
 		return media;
 	}
+
 	
-	public void exibirMaiorNota() {
-		double maiorNota = 0;
-		for (int i = 0; i < notas.size(); i++) {
-			maiorNota = notas.get(i);
-			if (notas.get(i+1) > maiorNota) {
-				maiorNota = notas.get(i+1);
-			} else {
-				break;
-			}
-		}
-		System.out.println("A maior nota é:" + maiorNota);
+	public double exibirMaiorNota() {
+		return Collections.max(notas);
 	}
 	
-	public void exibirMenorNota() {
-		double menorNota = 0;
-		for (int i = 0; i < notas.size(); i++) {
-			menorNota = notas.get(i);
-			if (notas.get(i+1) < menorNota) {
-				menorNota = notas.get(i+1);
-			} else {
-				break;
-			}
-		}
-		System.out.println("A maior nota é:" + menorNota);
+	public double exibirMenorNota() {
+		return Collections.min(notas);
 	}
 	
 }
