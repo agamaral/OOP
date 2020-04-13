@@ -104,16 +104,16 @@ public class Disciplina {
 	public void exibirDisciplina() {
 		
 		System.out.println("O nome da disciplina eh:" + this.nome);
-		System.out.println("A disciplina eh ofertada no "+ this.periodo + "° periodo");
+		System.out.println("A disciplina eh ofertada no "+ this.periodo + "ï¿½ periodo");
 		
 		if(alunos != null) {
 			exibirProfessor();
-			System.out.println("O num de alunos é:"+ getNumAlunos());
-			System.out.println("A média total da turma é:" + calcularMedia());
+			System.out.println("O num de alunos ï¿½:"+ getNumAlunos());
+			System.out.println("A mï¿½dia total da turma ï¿½:" + calcularMedia());
 			System.out.println("Quantidade de alunos aprovados:" + getNumAprovados());
 			System.out.println("Quantidade de alunos reprovados:" + getNumReprovados());
 		} else {
-			System.out.println("Não existem alunos matriculados na disciplina.");
+			System.out.println("Nï¿½o existem alunos matriculados na disciplina.");
 		}
 
 	}
@@ -122,7 +122,7 @@ public class Disciplina {
 		if (nota >= 0 && nota <= 10) {
 			notas.add(posAluno,nota);
 		} else {
-			System.out.println("Nota inválida.");
+			System.out.println("Nota invï¿½lida.");
 		}
 		
 		if (notas.get(posAluno) == nota) {
@@ -138,13 +138,13 @@ public class Disciplina {
 		if ( frequenciaTotal >= 0 && frequenciaTotal <= numTotalAulas) {
 			frequencias.add(posAluno, frequenciaTotal);
 		} else {
-			System.out.println("Frequência inválida.");
+			System.out.println("Frequï¿½ncia invï¿½lida.");
 		}
 		
 		if (frequencias.get(posAluno) == frequenciaTotal) {
-			//System.out.println("Frequência adicionada.");
+			//System.out.println("Frequï¿½ncia adicionada.");
 		} else {
-			System.out.println("Erro ao adicionar frequência.");
+			System.out.println("Erro ao adicionar frequï¿½ncia.");
 			return false;
 		}
 		return true;
@@ -156,10 +156,10 @@ public class Disciplina {
 		
 		if (n >= 6 && freq > 0.75 * numTotalAulas) {
 			this.aprovado = true;
-			System.out.println("O aluno está aprovado! Parabéns.");
+			System.out.println("O aluno estï¿½ aprovado! Parabï¿½ns.");
 		} else {
 			this.aprovado = false;
-			System.out.println("O aluno está reprovado.");
+			System.out.println("O aluno estï¿½ reprovado.");
 			return this.aprovado;
 		}
 		return this.aprovado;
@@ -177,7 +177,7 @@ public class Disciplina {
 		for(int i = 0; i <alunos.size(); i++) {
 			if (notas.get(i) >= 6) {
 				cont = cont + 1;
-				System.out.println("O aluno " + alunos.get(i).getNome() + " está aprovado!");
+				System.out.println("O aluno " + alunos.get(i).getNome() + " estï¿½ aprovado!");
 			}
 		}
 		if (cont == alunos.size()) {
@@ -200,11 +200,11 @@ public class Disciplina {
 		for(int i = 0; i <alunos.size(); i++) {
 			if (notas.get(i) < 6) {
 				cont = cont + 1;
-				System.out.println("O aluno " + alunos.get(i).getNome() + " está reprovado.");
+				System.out.println("O aluno " + alunos.get(i).getNome() + " estï¿½ reprovado.");
 			}
 		}
 		if (cont == 0) {
-			System.out.println("Não há alunos reprovados!");
+			System.out.println("Nï¿½o hï¿½ alunos reprovados!");
 		}
 	}
 	
