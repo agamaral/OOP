@@ -12,7 +12,7 @@ public class Main {
 		
 		Disciplina c1 = new Disciplina("Calculo I",1,4,20);
 		
-		Aluno a1 = new Aluno("Ant�nio", 234, 1,"Engenharia");
+		Aluno a1 = new Aluno("Antonio", 234, 1,"Engenharia");
 		Aluno a2 = new Aluno("Cindel", 233, 1,"Engenharia");
 		Aluno a3 = new Aluno("Toto", 232, 1,"Engenharia");
 		Aluno a4 = new Aluno("Eliezer", 231, 1,"Engenharia");
@@ -75,9 +75,9 @@ public class Main {
 			System.out.println("(4) EXIBIR REPROVADOS");
 			System.out.println("(5) EXIBIR MENOR E MAIOR NOTA");
 			System.out.println("(6) EXIBIR PROFESSOR DA DISCIPLINA");
-			System.out.println("(7) EXIBIR ALUNOS ACIMA DAS M�DIA");
-			System.out.println("(8) EXIBIR ALUNOS ABAIXO DA M�DIA");
-			System.out.println("(9) EXIBIR NOTAS, NOMES E FREQU�NCIAS");
+			System.out.println("(7) EXIBIR ALUNOS ACIMA DAS MEDIA");
+			System.out.println("(8) EXIBIR ALUNOS ABAIXO DA MEDIA");
+			System.out.println("(9) EXIBIR NOTAS, NOMES E FREQUENCIAS");
 			System.out.println("(10) EXIBIR ALUNOS ORDERNADOS PELA NOTA");
 			System.out.println("(11) MATRICULAR ALUNO");
 			System.out.println("===============================POO 2020/1==================================");
@@ -101,9 +101,9 @@ public class Main {
 						
 						
 					case 2:
-						System.out.println("O num de alunos �:"+c1.getNumAlunos());
-						System.out.println("O num de alunos reprovados �:"+c1.getNumReprovados());
-						System.out.println("O num de alunos aprovados �:"+c1.getNumAprovados());
+						System.out.println("O num de alunos eh:"+c1.getNumAlunos());
+						System.out.println("O num de alunos reprovados eh:"+c1.getNumReprovados());
+						System.out.println("O num de alunos aprovados eh:"+c1.getNumAprovados());
 						
 						
 						break;
@@ -120,8 +120,8 @@ public class Main {
 						
 					case 5: // half working
 						
-						System.out.println("A maior nota �:" +c1.exibirMaiorNota());
-						System.out.println("A menor nota �:" +c1.exibirMenorNota());
+						System.out.println("A maior nota eh:" +c1.exibirMaiorNota());
+						System.out.println("A menor nota eh:" +c1.exibirMenorNota());
 						break;
 						
 					case 6:
@@ -131,14 +131,14 @@ public class Main {
 						
 					case 7:
 						
-						System.out.println("A media �:" +c1.calcularMedia());
+						System.out.println("A media eh:" +c1.calcularMedia());
 						System.out.println("Alunos acima da media:");
 						c1.exibirAlunosAcimaMedia();
 						break;
 						
 					case 8:
 						
-						System.out.println("A media �:" +c1.calcularMedia());
+						System.out.println("A media eh:" +c1.calcularMedia());
 						System.out.println("Alunos abaixo da media:");
 						c1.exibirAlunosAbaixoMedia();
 						break;
@@ -194,9 +194,9 @@ public class Main {
 					break;
 				}
 			}
-			//sc.close();
+			
 		}
-		
+		//sc.close();
 	}
 	
 }
