@@ -7,10 +7,10 @@ public class Main {
         Triangulo t1 = new Triangulo(ladosTriangulo);
         Quadrilatero q1 = new Quadrilatero(ladosQuadrilatero);
 
-        t1.calcularPerimetro();
+        System.out.println("O perimetro eh:"+ t1.calcularPerimetro());
         t1.exibirLados();
 
-        q1.calcularPerimetro();
+        System.out.println("O perimetro eh:"+ q1.calcularPerimetro());
         q1.exibirLados();
     }
 }
