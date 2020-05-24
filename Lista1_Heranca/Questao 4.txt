@@ -1,0 +1,6 @@
+4) As dificuldades que identifiquei ao realizar as questões 1 e 2 foram principalmente escrever exatamente
+o mesmo código de uma para outra. Ou seja, o programador gasta seu tempo onde poderia estar fazendo 
+implementações no código codificando a mesma coisa de uma classe para outra. Se fosse um projeto grande,
+isso seria um grande impecílio.
+Usando a herança, a classe Triângulo simplismente herdaria os atributos da classe Quadrilátero, poupando
+tempo e código do programador.
